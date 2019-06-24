@@ -34,7 +34,7 @@ public class MybatisTest {
 		sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 		
 		ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
-		populator.addScript(new ClassPathResource("qna.sql"));
+		populator.addScript(new ClassPathResource("db/migration/V1__Create_Users_table.sql"));
 		DatabasePopulatorUtils.execute(populator, getDataSource());
 		log.info("database initialized success!");
 	}

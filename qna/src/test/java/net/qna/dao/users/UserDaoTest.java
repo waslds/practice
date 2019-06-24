@@ -32,7 +32,6 @@ public class UserDaoTest {
 		User user = new User("sanjigi", "password", "산지기", "sanjigi@gmail.com");
 		userDao.create(user);
 		User actual = userDao.findById(user.getUserId());
-		
 		assertThat(actual, is(user));
 	}
 	

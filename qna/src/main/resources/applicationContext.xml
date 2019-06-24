@@ -15,7 +15,15 @@
 		p:password="${database.password}"
 	/>
 	
-	<bean id="userDao" class="net.qna.dao.users.UserDao" 
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
 		p:dataSource-ref="dataSource"
-	/>
+		p:configLocation="classpath:mybatis-config.xml"/>
+
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory" />
+	</bean>
+	
+	<bean id="userDao" class="net.qna.dao.users.MyBatisUserDao" 
+	p:sqlSession-ref="sqlSession" />
+	
 </beans>

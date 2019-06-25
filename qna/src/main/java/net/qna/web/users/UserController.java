@@ -3,6 +3,7 @@ package net.qna.web.users;
 import java.util.List;
 import java.util.Locale;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -27,7 +28,7 @@ import net.qna.domain.users.User;
 public class UserController {
 	private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
-	@Autowired
+	@Resource(name = "userDao")
 	private UserDao userDao;
 	
 	@Autowired

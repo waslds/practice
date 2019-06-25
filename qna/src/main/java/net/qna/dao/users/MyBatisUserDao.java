@@ -1,10 +1,15 @@
 package net.qna.dao.users;
 
+import javax.annotation.Resource;
+
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
 
 import net.qna.domain.users.User;
 
+@Repository("userDao")
 public class MyBatisUserDao implements UserDao {
+	@Resource(name = "sqlSession")
 	private SqlSession sqlSession;
 	
 	
